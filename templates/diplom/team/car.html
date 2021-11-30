@@ -1,0 +1,14 @@
+{% extends 'diplom/activar/base.html' %}
+{% block content %}
+
+   {% for car in car %}
+        { car.image.first}}
+
+        <h3>{{ car.neme }} </h3>
+       <p> {{ car.text | linebreaks}}</p>
+       <div>
+                {{ car.image }}
+                {{ car.description}}
+       </div>
+    {%endfor%}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'diplom/history/../../ignore/history_single.html' %}
+       <!-- Breadcrumb Section Begin -->
+<div class="col-lg-4 col-md-6 grid-item">
+{% for period in period %}
+   <div class="blog-item large-item set-bg">{{ period.image }}
+         <a href="{{ period.get_absolute_url }}">
+               href="{% url 'period' period.slug %}
+             <div class="categories">{{ period.title }}</div>
+                <h5>{{ period.text|linebreaks|truncatechars:200 }}</h5>
+       </a>
+    </div>
+ {%endfor%}
+</div>
+
