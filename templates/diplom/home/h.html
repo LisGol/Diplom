@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <title>{% block title%} hhhhhh {% endblock %}</title>
+</head>
+<body>
+<div id="menu">
+    {% block menu %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/history">История</a></li>
+            <li><a href="/news">Новости</a></li>
+            <li><a href="/schedule/">Новости</a></li>
+            <li><a href="/season_standing/">Результаты</a>
+                <ul class="standing">
+                    <li> <a href="/season_standing/personal_standing/">Личный зачет</a></li>
+                    <li> <a href="/season_standing/team_standing/">Кубок Конструкторов</a></li>
+                </ul>
+            </li>
+            <li><a href="/team/">Команда</a>
+                <ul class="team">
+                    <li> <a href="/team/ George Russell/">Джордж Расселл</a></li>
+                    <li> <a href="/team/Nicholas Latifi/">Николас Латифи</a></li>
+                    <li> <a href="/team/car/"></a></li>
+                </ul>
+            </li>
+            <li><a href="/shop/">Магазин</a>
+              <ul class="shop">
+                    <li> <a href="/shop/Man/">Мужчинам</a></li>
+                    <li> <a href="/shop/Women/">Женщинам</a></li>
+                    <li> <a href="/shop/Kid/"></a>Детям</li>
+                    <li> <a href="/shop/suvenirs/">Сувениры</a></li>
+                </ul>
+            </li>
+            <li><a href="/auth/registration/">Регистрация</a></li>
+        </ul>
+{% endblock %}
+</div>
+<div id="content">
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>

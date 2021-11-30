@@ -1,0 +1,21 @@
+{% extends 'diplom/activar/base.html' %}
+{% block title %}
+News
+{% endblock %}
+{% block content %}
+       <!-- Breadcrumb Section Begin -->
+
+    {% for history in history %}
+        {{ history.image }}
+        {{ history.year }}
+
+        <a href="{{get_absolute_url }}">{{ history.title }} </a>
+        <h5>{{ history.text| linebreaks|truncatechars:200 }}</h5>
+            <div>
+                {{ news.publish }}
+                {{ news.description}}
+            </div>
+    {%endfor%}
+
+{% endblock %}
+    <!-- Blog Section End -->

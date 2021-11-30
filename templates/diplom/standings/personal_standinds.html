@@ -1,0 +1,36 @@
+{% extends 'diplom/activar/base.html' %}
+
+<style>
+	/* Стили таблицы (IKSWEB) */
+	table.iksweb{text-decoration: none;border-collapse:collapse;width:100%;text-align:center;}
+	table.iksweb th{font-weight:normal;font-size:14px; color:#ffffff;background-color:#354251;}
+	table.iksweb td{font-size:13px;color:#354251;}
+	table.iksweb td,table.iksweb th{white-space:pre-wrap;padding:10px 5px;line-height:13px;vertical-align: middle;border: 1px solid #354251;}	table.iksweb tr:hover{background-color:#f9fafb}
+	table.iksweb tr:hover td{color:#354251;cursor:default;}
+</style>
+{% block title %}
+personal_standing
+{% endblock %}
+{% block content %}
+{% for personal_standing in personal_standing %}
+<table class="iksweb">
+<thead>
+<tr>
+	<th> Гран При </th>
+	<th>Гонщик</th>
+	<th>Команда</th>
+	<th>Очки</th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+    <td>{{ personal_standing.country }}</td>
+	<td>{{ personal_standing.team}}</td>
+	<td>{{ personal_standing.driver}}</td>
+	<td>{{ personal_standing.point }}</td>
+    </tr>
+
+</tbody>
+</table>
+{% endfor %}
+{% endblock %}

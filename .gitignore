@@ -5,10 +5,20 @@ diplom/tempates/ignore/
 
 .idea/
 
-
+__pycache__/
 venv/
 
 db.sqlite3/
 
 .env/
 env
+
+
+static/home/Source
+static/home/fonts
+static/home/imge
+static/autontification/
+
+static/news/scss
+static/news/fonts
+static/news/images

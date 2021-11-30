@@ -1,0 +1,30 @@
+{% extends 'diplomproject/home/h.html' %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+    <form
+            method="post"
+            action="{% url 'autontification:login'%}"
+    >
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-row">
+            <label for ='{{ field.id_for_label }}'>{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                {% for error in field.errors %}
+            <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        {% endif %}
+        </div>
+    {% endfor %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="error-massege">{{ error }}</p>
+            {% endfor %}
+        {% endif%}
+        <button type="submit">зарегистрироваться</button>
+    </form>
+{% endblock %}
+

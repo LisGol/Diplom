@@ -1,0 +1,13 @@
+{% extends 'diplom/activar/base.html' %}
+    <title>News</title>
+{% block content %}
+    {% for news in news %}
+        { news.image }}
+        <a href="{{get_absolute_url }}">{{ news.title }} </a>
+        <h5>{{ news.text| linebreaks|truncatechars:200 }}</h5>
+            <div>
+                {{ news.publish }}
+                {{ news.description}}
+            </div>
+    {%endfor%}
+{% endblock %}

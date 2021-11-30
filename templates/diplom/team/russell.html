@@ -1,0 +1,14 @@
+{% extends 'diplom/activar/base.html' %}
+{% block content %}
+
+   {% for driverR in driverR %}
+        { driverR.image.first}}
+
+        <h3>{{ driverR.neme }} </h3>
+       <p> {{ driverR.text | linebreaks}}</p>
+       <div>
+                {{ driverR.image }}
+                {{ driverR.description}}
+       </div>
+    {%endfor%}
+{% endblock %}
