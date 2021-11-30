@@ -1,0 +1,14 @@
+ ../diplom-env
+
+diplom/tempates/ignore/
+
+
+.idea/
+
+
+venv/
+
+db.sqlite3/
+
+.env/
+env
