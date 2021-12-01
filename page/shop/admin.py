@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(models.Subcategory)
 class SubcategoryAdmin(admin.ModelAdmin):
-    pass
+     prepopulated_fields = {'slug': ('name',)}
 
 
 class ProductImageAdmin(admin.ModelAdmin):

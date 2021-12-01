@@ -5,10 +5,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 
 def catalog (request):
-    categories = Category.objects.all()
-    return render(request, 'diplomproject/shop/category.html',
-                    # 'shop/list.html',
-                    {"categories": categories,})
+    catalog = Category.objects.all()
+    return render(request, 'shop/catalog.html',
+                         {"catalog": catalog})
 
 #
 # def category_view(request, category_id):
@@ -25,21 +24,24 @@ def catalog (request):
                   #  'products': products})
 
 
-def category_view(request, category_id):
-    categories = Category.objects.get(id=category_id)
-    if category_id:
-         category = get_object_or_404(Category, id=category_id)
+def category_view(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
     return render(request,
-                  'diplomproject/shop/category.html',
-                   # {'category': category,
-                  { 'categories': categories})
+                  'shop/category.html',
+                  {'category': category})
 
-def product_detail(request, product_id):
-    product = Category.objects.get(id=product_id)
-    if product_id:
-        product = get_object_or_404(Product, id=product_id)
+
+def product(request, product_slug):
+    product = get_object_or_404(Category, slug=product_slug)
     return render(request,
-                  'shop/list.html',
+                  'shop/product.html',
                   {'product': product})
+
+
+
+
+
+
+
 
 
