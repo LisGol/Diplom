@@ -1,9 +1,10 @@
 from django.db import models
 
 
-class Rank (models.Model):
+class Car(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name='Наименование')
-    #slug = models.SlugField(max_length=200, db_index=True, unique=True)
+    slug = models.SlugField(max_length=200, db_index=True, null=True)
+    text = models.TextField(max_length=10000, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -14,16 +15,29 @@ class Rank (models.Model):
         return self.name
 
 
-class Team(models.Model):
-    rank = models.ForeignKey(Rank, blank=True, on_delete=models.CASCADE, null=True)
+class DriverL(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name='Наименование')
     slug = models.SlugField(max_length=200, db_index=True, null=True)
-    text = models.TextField(max_length=3000, blank=True)
-    description = models.TextField(max_length=1000, blank=True, verbose_name='Описание')
+    text = models.TextField(max_length=10000, blank=True)
 
     class Meta:
         ordering = ('name',)
-        verbose_name = 'Команда'
+        verbose_name = 'L'
+        verbose_name_plural = 'L'
+
+    def __str__(self):
+        return self.name
+
+
+class DriverR(models.Model):
+    name = models.CharField(max_length=200, db_index=True, verbose_name='Наименование')
+    slug = models.SlugField(max_length=200, db_index=True, null=True)
+    text = models.TextField(max_length=10000, blank=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'R'
+        verbose_name_plural = 'R'
 
     def __str__(self):
         return self.name
@@ -31,11 +45,15 @@ class Team(models.Model):
 
 class TeamImage(models.Model):
     image = models.ImageField(upload_to='team')
-    team = models.ForeignKey(Team, blank=True, on_delete=models.CASCADE, null=True)
+    car = models.ForeignKey(Car, blank=True, on_delete=models.CASCADE, null=True)
+    driverR = models.ForeignKey(DriverR, blank=True, on_delete=models.CASCADE, null=True)
+    driverL = models.ForeignKey(DriverL, blank=True, on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ('image',)
-        verbose_name = 'Фото для истории'
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фото'
 
-    # def __str__(self):
-    #     return self.image
+    def __str__(self):
+        return str(self.image)
+

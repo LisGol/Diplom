@@ -1,14 +1,47 @@
 {% extends 'diplom/activar/base.html' %}
 {% block content %}
+    {% for driverR in driverR %}
+        <!-- Breadcrumb Section Begin -->
+        {#    <section class="breadcrumb-section set-bg spad" data-setbg="img/head.jpg">#}
+        {#        <div class="container">#}
+        {#            <div class="row">#}
+        {#                <div class="col-lg-12">#}
+        {#                    <div class="breadcrumb-text">#}
+        {#                        <h2>{{ driverR.name }}</h2>#}
+        {#                        <div class="breadcrumb-controls">#}
+        {#                            <a href="#"><i class="fa fa-home"></i> Home</a>#}
+        {#                            <span>About Us</span>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#    </section>#}
+        {#    <!-- Breadcrumb End -->#}
 
-   {% for driverR in driverR %}
-        { driverR.image.first}}
+        <!-- Aboutus Section Begin -->
+        <section class="aboutus-section spad">
+            <div class="container">
+                <div class="aboutus-page-text">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-10 m-auto">
+                            <div class="section-title">
+                                <h2>{{ driverR.name }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    {% for image in driverR.teamimage_set.all %}
+                        <img src="{{image.image.url}}">
+                    {% endfor %}
+                    <div class="about-us">
+                        <h4>{{ driverR.name }}</h4>
+                        <p>{{ driverR.text | linebreaks }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
 
-        <h3>{{ driverR.neme }} </h3>
-       <p> {{ driverR.text | linebreaks}}</p>
-       <div>
-                {{ driverR.image }}
-                {{ driverR.description}}
-       </div>
-    {%endfor%}
+    {% endfor %}
 {% endblock %}

@@ -1,4 +1,5 @@
 {% load static %}
+{#{% load news_tags %}#}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -76,8 +77,13 @@
                                     <li><a href="{% url 'personal_standing' %}">Личный зачет</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{% url 'autontification:registration'%} ">Регистрация</a></li>|
-                            <li><a href="{% url 'autontification:login' %}"> Войти </a></li>
+                            <li><a href="{% url 'shop:shop'  %} ">Магазин</a></li>
+                            <li class="active"><a href="{% url 'autontification:registration'%} ">Регистрация</a>
+                                <ul class="dropdown">
+                                   <li><a href="{% url 'autontification:login' %}"> Войти </a></li>
+{#                                   <li><a href="{% url 'autontification:create_user_profile' %}"> profile </a></li>#}
+                                </ul>
+                            </li>
                             </li>
                         </ul>
                  </ul>

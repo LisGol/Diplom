@@ -3,52 +3,47 @@ from django.contrib.auth import get_user_model, authenticate
 from django.core.exceptions import ValidationError
 from django.db.models import Q
 
+from django.contrib.auth.models import User
+
+
 User = get_user_model()
 
-
-class RegistrationForm(forms.Form):
-    name = forms.CharField(min_length=3, max_length=16,label='Имя')
-    surname = forms.CharField(min_length=3, max_length=16,label='Фамилия')
-    username = forms.CharField(min_length=3, max_length=16,label='Имя пользователя')
-    email = forms.EmailField(label='email')
+class RegistrationForm(forms.ModelForm):
     password1 = forms.CharField(widget=forms.PasswordInput, label='Пароль')
     password2 = forms.CharField(widget=forms.PasswordInput, label='Повторите пароль')
 
-
-class Meta:
-    model = User
-    exclude = ['username', 'email']
-    label = {
-        'username': 'имя пользователя',
-        'email': 'email'
-    }
+    class Meta:
+        model = User
+        fields = ['email', 'avatar']
+        labels = {'email': 'email'}
 
     def clean_password2(self):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             raise ValidationError(
-                'Пароли должны совподать'
+                'Пароли должны совпадать'
             )
         return self.cleaned_data['password2']
 
-    def clean(self):
-        user = User.objects.filter(
-            Q(username=self.cleaned_data['username'])
-            | Q(email=self.cleaned_data['email'])
-        ).first()
-        if user:
-            raise ValidationError('Пользователь с такими учетными данными уже существует')
-        return super().clean()
+def clean(self):
+    user = User.objects.filter(
+        Q(username=self.cleaned_data['username'])
+        | Q(email=self.cleaned_data['email'])
+    ).first()
+    if user:
+        raise ValidationError('Пользователь с такими учетными данными уже существует')
+    return super().clean()
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label='Имя пользователя')
+    email_or_username = forms.CharField(label='email или имя пользователя')
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
 
     def clean(self):
         user = authenticate(
-            username=self.cleaned_data['username'],
+            username=self.cleaned_data['email_or_username'],
+            email=self.cleaned_data['email_or_username'],
             password=self.cleaned_data['password']
         )
         if not user:
-            raise ValidationError('Введенные данные не верны')
+            raise ValidationError('Введённые данные неверны')
         return self.cleaned_data

@@ -37,17 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # internal
-     'user.autontification.apps.AutontificationConfig',
-   # 'user.cart.apps.CartConfig',
-   #  'page.shop.apps.ShopConfig',
-      'page.news.apps.NewsConfig',
-      'page.team.apps.TeamConfig',
-      'page.history.apps.HistoryConfig',
-      'page.schedule.apps.ScheduleConfig',
-      'page.standings.apps.StandingsConfig',
-      'page.home.apps.HomeConfig',
+    'user.autontification.apps.AutontificationConfig',
+    'user.cart.apps.CartConfig',
+    'page.shop.apps.ShopConfig',
+    'page.news.apps.NewsConfig',
+    'page.team.apps.TeamConfig',
+    'page.history.apps.HistoryConfig',
+    'page.schedule.apps.ScheduleConfig',
+    'page.standings.apps.StandingsConfig',
+    'page.home.apps.HomeConfig',
 
 ]
 
@@ -112,8 +111,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'autontification.User'
-# LOGIN_URL = 'autontification:login'
+LOGIN_URL = 'autontification:login'
 
+AUTONTIFICATION_BACKENDS = [
+    'apps.autontification.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -138,8 +141,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -22,19 +22,17 @@ from page.home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('shop/', include('page.shop.urls')),
-    # path('shop/', include(('page.shop.urls', 'page.shop'), namespace='shop')),
+    path('shop/', include('page.shop.urls'), name='shop'),
     path('', views.HomeTemplateView.as_view(), name='Home'),
-    # path('news1/', include('page.news1.urls')),
     path('', include('page.news.urls', namespace='news')),
     path('', include('page.history.urls')),
     path('', include('page.schedule.urls')),
-    path(' ', include('user.autontification.urls')),
-    # path('auth/', include('user.autontification.urls')),
+    path('', include('user.autontification.urls')),
     path('', include('page.standings.urls')),
     path('', include('page.team.urls')),
 ]
 
 
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
-from page.standings.models import Personal_standing, Team_standing, team
+from page.standings.models import Personal_standing
 
-def personal_standing(request):
-    personal_standing = Personal_standing.objects.all( )
+
+def personal_standing(request, point_id=None, order_by=None):
+    personal_standing = Personal_standing.objects.order_by("-point").all()
     return render(request,
                   'diplom/standings/personal_standinds.html',
                   {'personal_standing': personal_standing,

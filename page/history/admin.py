@@ -19,7 +19,9 @@ class HistoryAdmin(admin.ModelAdmin):
     inlines = [HistoryImageInline]
     prepopulated_fields = {'slug': ('title',)}
 
+
 admin.site.register(HistoryImage, HistoryImageAdmin)
+
 
 @admin.register(models.Year)
 class YearAdmin(admin.ModelAdmin):

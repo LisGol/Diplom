@@ -1,21 +1,43 @@
 {% extends 'diplom/activar/base.html' %}
 {% block title %}
-News
+History
 {% endblock %}
-{% block content %}
-       <!-- Breadcrumb Section Begin -->
-
+{% block content %}   <!-- Blog Section Begin -->
     {% for history in history %}
-        {{ history.image }}
-        {{ history.year }}
-
-        <a href="{{get_absolute_url }}">{{ history.title }} </a>
+        <section class="blog-section blog-page spad">
+        <div class="container">
+        <div class="row blog-gird">
+        <div class="grid-sizer"></div>
+        <div class="col-lg-4 col-md-6 grid-item">
+        <div class="blog-item large-item set-bg">
+            <img src="{{history.historyimage_set}}">
+            {{ history.year }} </div>
+        <a href="{{history.get_absolute_url }}">{{ history.title }} </a>
         <h5>{{ history.text| linebreaks|truncatechars:200 }}</h5>
-            <div>
-                {{ news.publish }}
-                {{ news.description}}
-            </div>
-    {%endfor%}
-
+    {% endfor %}
 {% endblock %}
-    <!-- Blog Section End -->
+</div>
+</div>
+</div>
+</section>
+<div class="blog-option">
+    <div class="blog-pagination">
+        <a href="#" class="active">1</a>
+        of
+        <a href="#">3</a>
+        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+    </div>
+    <div class="blog-option-right">
+        <div class="blog-result">Showing 1–3 of 12 results</div>
+        <div class="show-result">
+            <p>Show:</p>
+            <select class="show-result-select">
+                <option value="">09</option>
+                <option value="">19</option>
+                <option value="">29</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Section End -->

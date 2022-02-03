@@ -1,13 +1,23 @@
-{% extends "diplom/activar/base.html" %}
-{% load static %}
-{% block title %}
-{% endblock %}
+{% extends 'diplom/activar/base.html' %}
 {% block content %}
-    {% for catalog in catalog%}
-        <div class ='alert alert-warning mt-2'>
-        <a href={{category.get_absolute_url}}>
-        <h3> {{ catalog.name }}</h3>
-        </a>
+    <!-- Gallery Section Begin -->
+    <div id="sidebar">
+        <div class="selected">
+            <div id="main" class="product-list">
+                {% for catalog in catalog %}
+                    <div class="gallery-controls">
+                        <ul>
+                            <li class="active">
+                                <a href="{{ catalog.get_absolute_url }}">
+                                    {{ catalog.name }}></a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-{% endfor %}
-{% endblock %}>
+    </div>
+    </div>
+    </section>
+{% endblock %}
+    <!-- Cta Section End -->

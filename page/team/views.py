@@ -1,23 +1,25 @@
 from django.shortcuts import render, get_object_or_404
 
-from page.team.models import Team
+from page.team.models import Car, DriverR, DriverL
 
-def car (request):
-    car = Team.objects.all()
+
+def car(request):
+    car = Car.objects.filter()
     return render(request,
                   'diplom/team/car.html',
                   {'car': car})
 
 
 def driver_russell(request):
-    driverR= Team.objects.all()
+    driverR = DriverR.objects.all()
     return render(request,
                   'diplom/team/russell.html',
                   {'driverR': driverR})
 
-def driver_latify(request):
-    driverL = Team.objects.all()
+
+
+def driver_latifi(request):
+    driverL = DriverL.objects.all()
     return render(request,
                   'diplom/team/latify.html',
                   {'driverL': driverL})
-

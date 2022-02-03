@@ -1,45 +1,85 @@
 {% extends 'diplom/activar/base.html' %}
 
-<style>
-	/* Стили таблицы (IKSWEB) */
-	table.iksweb{text-decoration: none;border-collapse:collapse;width:100%;text-align:center;}
-	table.iksweb th{font-weight:normal;font-size:14px; color:#ffffff;background-color:#354251;}
-	table.iksweb td{font-size:13px;color:#354251;}
-	table.iksweb td,table.iksweb th{white-space:pre-wrap;padding:10px 5px;line-height:13px;vertical-align: middle;border: 1px solid #354251;}	table.iksweb tr:hover{background-color:#f9fafb}
-	table.iksweb tr:hover td{color:#354251;cursor:default;}
-</style>
-{% block title %}
-Schedule
-{% endblock %}
+<!-- Breadcrumb Section Begin -->
+{#    <section class="breadcrumb-section set-bg spad" data-setbg="img/about-bread.jpg">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12">#}
+{#                    <div class="breadcrumb-text">#}
+{#                        <h2>SCHEDULE </h2>#}
+{#                        <div class="breadcrumb-controls">#}
+{#                            <a href="#"><i class="fa fa-home"></i> Home</a>#}
+{#                            <span>Schedule</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+<!-- Breadcrumb End -->
+<!-- Class Time Section Begin -->
 {% block content %}
-{% for schedule in schedule %}
-<table class="iksweb">
-<thead>
-<tr>
-	<th> Дата </th>
-	<th>Гран При</th>
-	<th>Траса</th>
-	<th>Длинна</th>
-    <th> Круги </th>
-	<th>Дистанция</th>
-	<th>Победитель</th>
-	<th>Команда</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>{{ schedule.date }}</td>
-{#	<td>{{ schedule.imagine }}</td>#}
-	<td>{{ schedule.gran_ptix }}</td>
-	<td>{{ schedule.track}}</td>
-	<td>{{ schedule.lenght }}</td>
-    <td>{{ schedule.laps }}</td>
-    <td>{{ schedule.distance}}</td>
-	<td>{{ schedule.winner }}</td>
-    <td>{{ schedule.team }}</td>
-</tr>
+    <section class="classtime-section class-time-table spad">
+        <div class="col-lg-12 text-center">
+            <div class="section-title">
+                <h2>Рассписание</h2>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            {% for schedule in schedule %}
+                <div class="classtime-table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Дата</th>
+                            <th>Страна</th>
+                            <th>Гран При</th>
+                            <th>Траса</th>
+                            <th>Длинна</th>
+                            <th>Круги</th>
+                            <th>Дистанция</th>
+                            <th>Победитель</th>
+                            <th>Команда</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <h6>{{schedule.date}}</h6>
+                            </td>
 
-</tbody>
-</table>
-{% endfor %}
+                            <td>
+                                <h6> <img src="{{schedule.image.url}}"></h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.grandprix}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.track}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.length}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.laps}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.distance}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.winner}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{schedule.team}}</h6>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                </div>
+                </section>
+
+            {% endfor %}
 {% endblock %}

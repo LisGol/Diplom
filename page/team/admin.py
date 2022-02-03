@@ -1,6 +1,6 @@
 from django.contrib import admin
 from . import models
-from .models import TeamImage, Team
+from .models import TeamImage
 
 
 class TeamImageAdmin(admin.ModelAdmin):
@@ -13,15 +13,20 @@ class TeamImageInline(admin.StackedInline):
     extra = 0
 
 
-@admin.register(models.Team)
-class TeamAdmin(admin.ModelAdmin):
-    list_display = ('rank'),
+@admin.register(models.Car)
+class CarAdmin(admin.ModelAdmin):
     inlines = [TeamImageInline]
     prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(TeamImage, TeamImageAdmin)
 
 
-@admin.register(models.Rank)
-class RankAdmin(admin.ModelAdmin):
-    pass
+@admin.register(models.DriverL)
+class DriverLAdmin(admin.ModelAdmin):
+    inlines = [TeamImageInline]
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(models.DriverR)
+class DriverRAdmin(admin.ModelAdmin):
+    inlines = [TeamImageInline]
+    prepopulated_fields = {'slug': ('name',)}

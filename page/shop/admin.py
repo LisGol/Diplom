@@ -6,7 +6,7 @@ from .models import ProductImage, Category
 
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    # list_display = ['name', 'slug',]
     prepopulated_fields = {'slug': ('name',)}
    # admin.site.register(Category, CategoryAdmin)
 
@@ -28,7 +28,7 @@ class ProductImageInline(admin.StackedInline):
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'category', 'price', 'stock', 'available', 'created', 'updated']
+    list_display = ['name', 'slug', 'gender', 'price', 'stock', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}

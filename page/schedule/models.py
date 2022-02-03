@@ -3,7 +3,7 @@ from django.db import models
 
 class Schedule(models.Model):
     date = models.CharField(max_length=10, db_index= True, verbose_name='Дата')
-    image = models.ImageField(upload_to='schedule/%Y/%m/%d', blank=True, verbose_name='Фото')
+    image = models.ImageField(upload_to='schedule', blank=True, verbose_name='Фото')
     grandprix = models.CharField(max_length=200, db_index=True, verbose_name='Гран При')
     track = models.CharField(max_length=200, db_index=True, verbose_name='Трасса')
     length = models.CharField(max_length=10, verbose_name='Длина')

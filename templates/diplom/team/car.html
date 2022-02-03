@@ -1,14 +1,47 @@
 {% extends 'diplom/activar/base.html' %}
 {% block content %}
+    {% for car in car %}
+{#        <!-- Breadcrumb Section Begin -->#}
+{#        <section class="breadcrumb-section set-bg spad" data-setbg="static/home/img/hero-slider/home-1.jpg">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-12">#}
+{#                        <div class="breadcrumb-text">#}
+{#                            <h2>{{ car.name }}</h2>#}
+{#                            <div class="breadcrumb-controls">#}
+{#                                <a href="#"><i class="fa fa-home"></i> Home</a>#}
+{#                                <span>Car</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
+{#        <!-- Breadcrumb End -->#}
 
-   {% for car in car %}
-        { car.image.first}}
+        <!-- Aboutus Section Begin -->
+        <section class="aboutus-section spad">
+            <div class="container">
+                <div class="aboutus-page-text">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-10 m-auto">
+                            <div class="section-title">
+                                <h2>{{ car.name }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    {% for image in car.teamimage_set.all %}
+                        <img src="{{image.image.url}}">
+                    {% endfor %}
+                    <div class="about-us">
+                        <h4>{{ car.name }}</h4>
+                        <p>{{ car.text | linebreaks }}
+                        </p>
 
-        <h3>{{ car.neme }} </h3>
-       <p> {{ car.text | linebreaks}}</p>
-       <div>
-                {{ car.image }}
-                {{ car.description}}
-       </div>
-    {%endfor%}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    {% endfor %}
 {% endblock %}
