@@ -12,3 +12,6 @@ db.sqlite3/
 
 .env/
 env
+
+page/shop/migrations/
+page/shop/static/
