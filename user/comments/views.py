@@ -36,10 +36,10 @@ def order_create(request):
                              quantity=item['quantity'])
             cart.clear()
             return render(request,
-                          'diplom/autontification/../../templates/diplom/order/created.html',
+                          'diplom/order/created.html',
                           {'order': order})
     else:
         form = OrderCreateForm()
     return render(request,
-                  'diplom/autontification/../../templates/diplom/order/create.html',
+                  'diplom/order/create.html',
                   {'cart': cart, 'form': form})
