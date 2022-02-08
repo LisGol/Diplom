@@ -1,27 +1,32 @@
-from urllib import request
-
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 
 from page.shop.models import Product
-from user.cart.models import Cart, CartProduct
+from .cart import Cart
+from .forms import CartAddProductForm
 
 
-def add_to_cart(request, product_slug,):
-    product = get_object_or_404(Product, slug=product_slug)
-
-    is_new_cart=False
-    cart = Cart.objects.get_or_create(user=request.user, checked_out=False)
-    # if not cart:
-    #     is_new_cart = True
-    #     cart = Cart()
-    # if is_new_cart:
-    cart_product = CartProduct.objects.get_or_create(prodict=product, cart=cart)
-    if cart_product in cart.cartproduct_set:
-        cart_product.quantity += 1
-    else:
-        cart.cartproduct_set.add(cart_product)
+def cart_add(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect('cart:cart_detail')
 
 
-def cart(request):
-    user = request.user
-    customer
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove(product)
+    return redirect('cart:cart_detail')
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
+                                                                   'update': True})
+    return render(request, 'diplom/autontification/../../templates/diplom/cart/cart.html', {'cart': cart})

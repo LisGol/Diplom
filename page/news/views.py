@@ -1,9 +1,11 @@
 
-
+from taggit.models import Tag
 from django.shortcuts import render, get_object_or_404
 
 from page.news.models import News
 from django.views.generic import ListView
+from user.comments.models import Comment
+from user.comments.forms import CommentForm
 
 
 class ListNews(ListView):
@@ -16,13 +18,40 @@ class ListNews(ListView):
         return News.objects.all()
 
 
-def single_news(request, post_slug):
+def single_news(request, post_slug, tag_slug=None, object_list=None):
     post = get_object_or_404(News, slug=post_slug)
-
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
     return render(request,
                   'diplom/news/blog-single.html',
-                  {'post': post})
+                  {'post': post,
+                   'comments': comments,
+                   'new_comment': new_comment,
+                   'comment_form': comment_form,
+                })
 
 
 
+def last_article():
+    last_pages = News.objects.order_by("-id")[0:3]
+    return {
+        'last_pages': last_pages,
+    }
 
+#
+# def tag (request, tag_slug=None, object_list=None):
+#     tag = None
+#     if tag_slug:
+#         tag = get_object_or_404(Tag, slug=tag_slug)
+#         object_list = object_list.filter(tags__in=[tag])
+#         return render(request,
+#                   'diplom/news/blog-single.html',
+#                   {'tag': tag})

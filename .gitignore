@@ -23,7 +23,7 @@ static/news/scss
 static/news/fonts
 static/news/images
 
-page/shop/migrations/
+
 page/shop/static/
 
 templates/ex/

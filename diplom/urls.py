@@ -30,7 +30,10 @@ urlpatterns = [
     path('', include('user.autontification.urls')),
     path('', include('page.standings.urls')),
     path('', include('page.team.urls')),
+    path('cart', include('user.cart.urls')),
+    path('orders/', include('user.comments.urls', namespace='orders')),
 ]
+
 
 
 if settings.DEBUG:

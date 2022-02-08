@@ -41,13 +41,13 @@
                     <img src="/static/home/img/logo2.png" alt="">
                 </a>
             </div>
-            <div class="top-social">
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
+{#            <div class="top-social">#}
+{#                <a href="#"><i class="fa fa-pinterest-p"></i></a>#}
+{#                <a href="#"><i class="fa fa-linkedin"></i></a>#}
+{#                <a href="#"><i class="fa fa-pinterest-p"></i></a>#}
+{#                <a href="#"><i class="fa fa-youtube-play"></i></a>#}
+{#                <a href="#"><i class="fa fa-instagram"></i></a>#}
+{#            </div>#}
             <div class="container">
                 <div class="nav-menu">
                     <nav class="mainmenu mobile-menu">
@@ -81,12 +81,20 @@
                             <li class="active"><a href="{% url 'autontification:registration'%} ">Регистрация</a>
                                 <ul class="dropdown">
                                    <li><a href="{% url 'autontification:login' %}"> Войти </a></li>
-{#                                   <li><a href="{% url 'autontification:create_user_profile' %}"> profile </a></li>#}
+                                   <li><a href="{% url 'autontification:logout' %}"> Выйти </a></li>
                                 </ul>
                             </li>
+                            <li>
+                            {% if user.is_authenticated %}
+                                <div>
+                                    <span>{{ user.username }}</span>
+                                    {% if user.avatar %}
+                                        <img src="{{ user.avatar.url }}" height="25" width="25">
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                             </li>
                         </ul>
-                 </ul>
                     </nav>
                 </div>
             </div>

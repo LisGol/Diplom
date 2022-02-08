@@ -8,14 +8,15 @@ from django.contrib.auth.models import User
 
 User = get_user_model()
 
+
 class RegistrationForm(forms.ModelForm):
     password1 = forms.CharField(widget=forms.PasswordInput, label='Пароль')
     password2 = forms.CharField(widget=forms.PasswordInput, label='Повторите пароль')
 
     class Meta:
         model = User
-        fields = ['email', 'avatar']
-        labels = {'email': 'email'}
+        fields = ['username', 'email', 'avatar']
+        labels = {'username':'Имя пользователя','email': 'email'}
 
     def clean_password2(self):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
@@ -23,6 +24,7 @@ class RegistrationForm(forms.ModelForm):
                 'Пароли должны совпадать'
             )
         return self.cleaned_data['password2']
+
 
 def clean(self):
     user = User.objects.filter(

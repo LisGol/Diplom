@@ -8,6 +8,9 @@ from django.shortcuts import render, get_object_or_404
 
 from django.views.generic import ListView, DetailView
 
+from user.cart.models import CartProduct
+
+
 class CatalogList(ListView):
     model = Category
     template_name = 'shop/catalog.html'
@@ -41,11 +44,16 @@ class CartAddPtoductForm:
 
 def product(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    cart_product_form = CartAddPtoductForm()
+    # cart_product_form = CartAddPtoductForm()
+    is_in_cart = CartProduct.objects.filter(
+        product=product,
+        cart__user=request.user,
+        cart__active=True).first()
     return render(request,
                     'shop/product.html',
                     {'product': product,
-                     'cart_product_form':cart_product_form})
+                     'is_in_cart': is_in_cart})
+                     # 'cart_product_form':cart_product_form})
 
 # def product_view(request: WSGIRequest, product_slug: str):
 #     print('product_slug = ', product_slug)

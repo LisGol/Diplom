@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'page.schedule.apps.ScheduleConfig',
     'page.standings.apps.StandingsConfig',
     'page.home.apps.HomeConfig',
+    'user.comments.apps.CommentsConfig',
+
 
 ]
 
@@ -114,7 +116,7 @@ AUTH_USER_MODEL = 'autontification.User'
 LOGIN_URL = 'autontification:login'
 
 AUTONTIFICATION_BACKENDS = [
-    'apps.autontification.backends.EmailBackend',
+    'user.autontification.backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
 
@@ -134,7 +136,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+CART_SESSION_ID = 'cart'
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')

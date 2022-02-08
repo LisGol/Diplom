@@ -1,6 +1,27 @@
 {% extends 'diplom/activar/base.html' %}
 {% block content %}
     <!-- Gallery Section Begin -->
+    <div class="cart">
+        {% with total_items=cart|length %}
+            {% if total_items > 0 %}
+                Your cart:
+                <a href="{% url "cart:cart_detail" %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                </a>
+            {% else %}
+                Your cart is empty.
+            {% endif %}
+        {% endwith %}
+    </div>
+    {% if user.is_authenticated %}
+        <div>
+            <span>{{ user.username }}</span>
+            {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" height="25" width="25">
+            {% endif %}
+        </div>
+{% endif %}
     <div id="sidebar">
         <div class="selected">
             <div id="main" class="product-list">
@@ -17,7 +38,8 @@
             </div>
         </div>
     </div>
-    </div>
-    </section>
+
+{#    </div>#}
+{#    </section>#}
 {% endblock %}
     <!-- Cta Section End -->
