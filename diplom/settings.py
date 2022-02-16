@@ -12,7 +12,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+# env = os.environ.Env(
+#     DEBUG=(bool, False)
+# )
+# os.environ.Env.read_env()
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# import env as env
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -21,9 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-2=8g97!lhokmkk94r%4w1i3=%i!0uw#s+cm08&5g*bzy#c()l9'
-
+# SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# DEBUG = env('DEBUG')
+
 
 ALLOWED_HOSTS = []
 
@@ -48,8 +58,7 @@ INSTALLED_APPS = [
     'page.standings.apps.StandingsConfig',
     'page.home.apps.HomeConfig',
     'user.comments.apps.CommentsConfig',
-
-
+    'user.account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [

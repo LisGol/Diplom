@@ -1,10 +1,9 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
-from page.standings.models import Personal_standing
+from django.shortcuts import render
+from page.standings.models import PersonalStanding, TeamStanding
 
 
-def personal_standing(request, point_id=None, order_by=None):
-    personal_standing = Personal_standing.objects.order_by("-point").all()
+def personal_standing(request):
+    personal_standing = PersonalStanding.objects.order_by("-point").all()
     return render(request,
                   'diplom/standings/personal_standinds.html',
                   {'personal_standing': personal_standing,
@@ -12,7 +11,7 @@ def personal_standing(request, point_id=None, order_by=None):
 
 
 def team_standing(request):
-    team_standing = Personal_standing.objects.all()
+    team_standing = TeamStanding.objects.order_by("-score").all()
     return render(request,
                   'diplom/standings/team_standings.html',
                   {'team_standing': team_standing,

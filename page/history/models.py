@@ -1,10 +1,8 @@
 from django.db import models
-
-from django.db import models
 from django.urls import reverse
 
 
-class Year(models.Model):
+class year(models.Model):
     name = models.CharField(max_length=500, verbose_name='Период')
 
     class Meta:
@@ -22,7 +20,7 @@ class Year(models.Model):
 class History(models.Model):
     title = models.CharField(max_length=500, verbose_name='Название')
     text = models.TextField(verbose_name='Текст')
-    Year = models.ForeignKey(Year, blank=True,on_delete=models.SET_NULL, null=True)
+    year = models.ForeignKey(year, blank=True,on_delete=models.SET_NULL, null=True)
     slug = models.CharField(max_length=500, verbose_name='Название', null=True, blank=True)
 
     class Meta:

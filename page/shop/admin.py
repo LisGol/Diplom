@@ -1,19 +1,17 @@
 from django.contrib import admin
 
 from . import models
-from .models import ProductImage, Category
+from .models import ProductImage
 
 
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
-    # list_display = ['name', 'slug',]
     prepopulated_fields = {'slug': ('name',)}
-   # admin.site.register(Category, CategoryAdmin)
 
 
 @admin.register(models.Subcategory)
 class SubcategoryAdmin(admin.ModelAdmin):
-     prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class ProductImageAdmin(admin.ModelAdmin):
@@ -34,4 +32,4 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     inlines = [ProductImageInline]
     admin.site.register(ProductImage, ProductImageAdmin)
-# admin.site.register(Product, ProductAdmin)
+

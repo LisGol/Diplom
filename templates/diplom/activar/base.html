@@ -52,24 +52,14 @@
                 <div class="nav-menu">
                     <nav class="mainmenu mobile-menu">
                         <ul>
-                            <li><a href="{% url 'Home' %}">Дом</a></li>
-                            <li><a href="{% url 'news:News' %}">Новости</a></li>
-                            <li class="active"><a href="{% url 'history:History' %}">История</a>
-                                <ul class="dropdown">
-{#                                    <li><a href="{% url 'history:Period'%}">Скромное начало</a></li>#}
-{#                                    <li><a href="{% url 'history:History' %}">К звёздам с чистого листа</a></li>#}
-{#                                    <li><a href="{% url 'history:History'%}">Период колебаний</a></li>#}
-{#                                    <li><a href="{% url 'history:History' %} history_single_id%}">Золотая эпоха</a></li>#}
-{#                                    <li><a href="{% url 'history:History' %}">Новая эра</a></li>#}
-{#                                    <li><a href="{% url 'history:History' %}">Начало конца</a></li>#}
-{#                                    <li><a href="{% url 'history:History'%}">Возраждение</a></li>#}
-                                </ul>
-                            </li>
+                            <li><a href="{% url 'home' %}">Дом</a></li>
+                            <li><a href="{% url 'news:news' %}">Новости</a></li>
+                            <li class="active"><a href="{% url 'history:history' %}">История</a></li>
                             <li><a href="{% url 'schedule:schedule' %}">Расписание</a></li>
-                            <li class="active"><li><a href="{% url 'Team:Car' %}">Машина</a>
+                            <li class="active"><li><a href="{% url 'team:car' %}">Машина</a>
                                 <ul class="dropdown">
-                                   <li><a href="{% url 'Team:Driver_R' %}">Джордж Расселл</a></li>
-                                   <li><a href="{% url 'Team:Driver_l' %}">Николас Латифи</a></li>
+                                   <li><a href="{% url 'team:driver_R' %}">Джордж Расселл</a></li>
+                                   <li><a href="{% url 'team:driver_l' %}">Николас Латифи</a></li>
                                 </ul>
                             </li>
                             <li class="active"><a href="{% url 'team_standing' %}">Командный зачет</a>
@@ -78,12 +68,13 @@
                                 </ul>
                             </li>
                             <li><a href="{% url 'shop:shop'  %} ">Магазин</a></li>
-                            <li class="active"><a href="{% url 'autontification:registration'%} ">Регистрация</a>
+                            <li class="active"><a href="{% url 'auth:registration'%} ">Регистрация</a>
                                 <ul class="dropdown">
-                                   <li><a href="{% url 'autontification:login' %}"> Войти </a></li>
-                                   <li><a href="{% url 'autontification:logout' %}"> Выйти </a></li>
+                                   <li><a href="{% url 'auth:login' %}"> Войти </a></li>
+                                   <li><a href="{% url 'auth:logout' %}"> Выйти </a></li>
                                 </ul>
                             </li>
+{#                            <li><a href="{% url 'account:user_profile'%}"> Аккаунт </a></li>#}
                             <li>
                             {% if user.is_authenticated %}
                                 <div>

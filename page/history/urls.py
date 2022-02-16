@@ -5,7 +5,6 @@ from page.history import views
 app_name = 'history'
 
 urlpatterns = [
-    path('history/', views.list_history, name='History'),
-    path('history/<slug:period_slug>/', views.single_history, name='Period')
+    path('', views.list_history, name='history'),
+    path('history/<slug:period_slug>/', views.single_history, name='period')
 ]
-# news/<slug:news_slug>

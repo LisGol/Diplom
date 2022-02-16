@@ -1,8 +1,6 @@
 from django.urls import reverse
 from django.utils import timezone
 from django.db import models
-# from mptt.models import MPTTModel, TreeForeignKey
-from taggit.managers import TaggableManager
 
 from user.autontification.models import User
 
@@ -19,11 +17,12 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 def get_absolute_url(self):
     return reverse('news', kwargs={'news_slug': self.slug})
 
 
-STATUS_CHOICES = (('опубликован', 'Опубликован'), ('не опубликован', 'Не опубликован'))
+STATUS_CHOICES = (('Published', 'Опубликован'), ('Unpublished', 'Не опубликован'))
 
 
 class News(models.Model):

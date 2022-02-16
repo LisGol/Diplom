@@ -3,47 +3,37 @@
     Личный зачет
 {% endblock %}
 {% block content %}
-
-    <section class="classtime-section class-time-table spad">
-        {#        <div class="container">#}
-        {#            <div class="row">#}
-
+    <section class="classtime-section ">
         <div class="col-lg-12 text-center">
             <div class="section-title">
                 <h2>Личный зачет</h2>
             </div>
         </div>
-        </div>
-        <div class="row">
-            {% for personal_standing in personal_standing %}
-                <div class="classtime-table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Гонщик</th>
-                            <th>Команда</th>
-                            <th>Очки</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            {#                                <td class="workout-time">1.</td>#}
-                            <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                                <h6>{{ personal_standing.driver }}</h6>
-                            </td>
-                            <td>
-                                <h6>{{ personal_standing.team}}</h6>
-                            </td>
-                            <td>
-                                <h6>{{ personal_standing.point }}</h6>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </div>
-                </div>
-                </section>
-
-            {% endfor %}
+        {% for personal_standing in personal_standing %}
+            <div class="classtime-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Гонщик</th>
+                        <th>Команда</th>
+                        <th>Очки</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td  data-tsmeta="crossfit">
+                            <h6>{{ personal_standing.driver}}</h6>
+                        </td>
+                        <td>
+                            <h6>{{ personal_standing.team}}</h6>
+                        </td>
+                        <td>
+                            <h6>{{ personal_standing.point }}</h6>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            </section>
+        {% endfor %}
 {% endblock %}

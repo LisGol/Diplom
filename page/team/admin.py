@@ -17,14 +17,14 @@ class TeamImageInline(admin.StackedInline):
 class CarAdmin(admin.ModelAdmin):
     inlines = [TeamImageInline]
     prepopulated_fields = {'slug': ('name',)}
-
-admin.site.register(TeamImage, TeamImageAdmin)
+    admin.site.register(TeamImage, TeamImageAdmin)
 
 
 @admin.register(models.DriverL)
 class DriverLAdmin(admin.ModelAdmin):
     inlines = [TeamImageInline]
     prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(models.DriverR)
 class DriverRAdmin(admin.ModelAdmin):

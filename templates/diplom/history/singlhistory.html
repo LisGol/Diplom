@@ -1,29 +1,15 @@
 
 {% extends 'diplom/activar/base.html' %}
 {% block content %}
-{#    <section class="blog-single-hero set-bg" data-setbg={{ period.image.url }}>#}
-{##}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-xl-7 col-lg-7 m-auto text-center">#}
-{#                    <div class="bs-hero-text">#}
-
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-    <!-- Breadcrumb End -->
-
     <!-- Blog Single Section Begin -->
     <section class="blog-single-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-title">
-                       <div class="section-title">
-                           <h2>{{ period.title}}</h2>
-                       </div>
+                        <div class="section-title">
+                            <h2>{{ period.title}}</h2>
+                        </div>
                         {% for image in period.historyimage_set.all %}
                             <img src="{{image.image.url}}">   {% endfor %}
                         {% for historyI in HistoryImage %}
@@ -47,115 +33,7 @@
                     </div>
                 </div>
             </div>
-{#            <div class="col-lg-4">#}
-{#                <div class="blog-single-sidebar">#}
-{#                    <div class="bs-latest-news">#}
-{#                        <h4>News Latest</h4>#}
-{#                        <a href="{{ news.get_absolute_url }}" class="bl-item set-bg" data-setbg="img/sidebar-latest.jpg">#}
-{#                            <h5>{{ post.title }}</h5>#}
-{#                            <span>{{ post.publish }}</span>#}
-{#                        </a>#}
-{#                    </div>#}
-{#                    <div class="bs-recent-news">#}
-{#                        <h4>Recent News</h4>#}
-{#                        <a href="#" class="br-item">#}
-{#                            <div class="bi-pic">#}
-{#                                <img src="img/br-recent-1.jpg" alt="">#}
-{#                            </div>#}
-{#                            <div class="bi-text">#}
-{#                                <span>{{ post.publish }}</span>#}
-{#                                <h5>{{ post.title }}</h5>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                        <a href="#" class="br-item">#}
-{#                            <div class="bi-pic">#}
-{#                                <img src="img/br-recent-2.jpg" alt="">#}
-{#                            </div>#}
-{#                            <div class="bi-text">#}
-{#                                <span>Jan 31, 2019</span>#}
-{#                                <h5>Turkey Gravy Secrets Revealed</h5>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                        <a href="#" class="br-item">#}
-{#                            <div class="bi-pic">#}
-{#                                <img src="img/br-recent-3.jpg" alt="">#}
-{#                            </div>#}
-{#                            <div class="bi-text">#}
-{#                                <span>Jan 31, 2019</span>#}
-{#                                <h5>How To Remove Kidney Stones</h5>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                        <a href="#" class="br-item">#}
-{#                            <div class="bi-pic">#}
-{#                                <img src="img/br-recent-4.jpg" alt="">#}
-{#                            </div>#}
-{#                            <div class="bi-text">#}
-{#                                <span>Jan 31, 2019</span>#}
-{#                                <h5>Help Finding Information Online</h5>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                    </div>#}
-{#                </div>#}
-                {#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="row">#}
-{#            <div class="col-lg-12">#}
-{#                <div class="recent-news">#}
-{#                    <h4>Relatest News</h4>#}
-{#                    <div class="row">#}
-{#                        <div class="col-lg-4">#}
-{#                            <div class="recent-item set-bg" data-setbg="img/recent-1.jpg">#}
-{#                                <a href="#" class="recent-text">#}
-{#                                    <div class="categories">Gym & Croosfit</div>#}
-{#                                    <h5>Many people sign up for affiliate programs</h5>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-lg-4">#}
-{#                            <div class="recent-item set-bg" data-setbg="img/recent-2.jpg">#}
-{#                                <a href="#" class="recent-text">#}
-{#                                    <div class="categories">Gym & Croosfit</div>#}
-{#                                    <h5>Many people sign up for affiliate programs</h5>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-lg-4">#}
-{#                            <div class="recent-item set-bg" data-setbg="img/recent-3.jpg">#}
-{#                                <a href="#" class="recent-text">#}
-{#                                    <div class="categories">Gym & Croosfit</div>#}
-{#                                    <h5>Many people sign up for affiliate programs</h5>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="leave-comment-form">#}
-{#                    <h4>Leave A Comment</h4>#}
-{#                    <form action="#">#}
-{#                        <div class="row">#}
-{#                            <div class="col-lg-4">#}
-{#                                <input type="text" placeholder="Name">#}
-{#                            </div>#}
-{#                            <div class="col-lg-4">#}
-{#                                <input type="text" placeholder="Email">#}
-{#                            </div>#}
-{#                            <div class="col-lg-4">#}
-{#                                <input type="text" placeholder="Phone">#}
-{#                            </div>#}
-{#                            <div class="col-lg-12">#}
-{#                                <textarea placeholder="Comment"></textarea>#}
-{#                                <button type="submit" class="leave-btn">Post Comment</button>#}
-{#                            </div>#}
-{#                        </div>#}
-                    </form>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
-    <!-- Blog Single Section End -->
 
-
-    <!-- Cta Section End -->
 {% endblock %}

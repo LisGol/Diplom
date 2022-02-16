@@ -1,5 +1,3 @@
-from urllib import request
-
 from django.shortcuts import render, get_object_or_404
 
 from page.history.models import History
@@ -20,6 +18,3 @@ def single_history(request, period_slug):
                   {'period': period})
 
 
-def TeamImage(self):
-    teamimage = TeamImage.objects.all()
-    return render(request, {'teamimage': teamimage})

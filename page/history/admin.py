@@ -23,6 +23,6 @@ class HistoryAdmin(admin.ModelAdmin):
 admin.site.register(HistoryImage, HistoryImageAdmin)
 
 
-@admin.register(models.Year)
+@admin.register(models.year)
 class YearAdmin(admin.ModelAdmin):
     pass

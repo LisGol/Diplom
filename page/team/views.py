@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
 from page.team.models import Car, DriverR, DriverL
 
@@ -17,9 +17,9 @@ def driver_russell(request):
                   {'driverR': driverR})
 
 
-
 def driver_latifi(request):
     driverL = DriverL.objects.all()
     return render(request,
                   'diplom/team/latify.html',
                   {'driverL': driverL})
+

@@ -23,15 +23,16 @@ from page.home import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/', include('page.shop.urls'), name='shop'),
-    path('', views.HomeTemplateView.as_view(), name='Home'),
-    path('', include('page.news.urls', namespace='news')),
-    path('', include('page.history.urls')),
-    path('', include('page.schedule.urls')),
-    path('', include('user.autontification.urls')),
-    path('', include('page.standings.urls')),
-    path('', include('page.team.urls')),
-    path('cart', include('user.cart.urls')),
+    path('', views.HomeTemplateView.as_view(), name='home'),
+    path('news/', include('page.news.urls', namespace='news')),
+    path('history/', include('page.history.urls', namespace='history')),
+    path('schedule/', include('page.schedule.urls', namespace='schedule')),
+    path('auth/', include('user.autontification.urls', namespace='auth')),
+    path('', include('page.standings.urls',)),
+    path('team/', include('page.team.urls', namespace='team')),
+    path('cart', include('user.cart.urls', namespace='cart')),
     path('orders/', include('user.comments.urls', namespace='orders')),
+    path('account/', include('user.account.urls', namespace='account')),
 ]
 
 

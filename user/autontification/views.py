@@ -1,4 +1,4 @@
-# from urllib import request
+
 
 from django.contrib.auth import (
     get_user_model,
@@ -19,18 +19,18 @@ User = get_user_model()
 
 def logout(request):
     logout_user(request)
-    return redirect(reverse('Home'))
+    return redirect(reverse('home'))
 
 
 def registration(request):
     if request.user.is_authenticated:
-        return redirect(reverse('Home'))
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             save_user(form)
-            return redirect(reverse('Home'))
+            return redirect(reverse('home'))
     else:
         form = RegistrationForm()
     return render(
@@ -42,7 +42,7 @@ def registration(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect(reverse('Home'))
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -54,7 +54,7 @@ def login(request):
                 password=form.cleaned_data['password']
             )
             if user:
-                redirect_url = request.GET.get('next') or reverse('Home')
+                redirect_url = request.GET.get('next') or reverse('home')
                 login_user(request, user)
                 return redirect(redirect_url)
     else:

@@ -1,5 +1,4 @@
 {% extends 'diplom/activar/base.html' %}
-{#<h1>{{singl_news}}</h1>#}
 {% block content %}
     <!-- Breadcrumb Section Begin -->
     <section class="blog-single-hero set-bg" data-setbg={{ post.image.url }}>
@@ -22,180 +21,56 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                        <div class="blog-title">
-                            <h4>{{ post.title }}</h4>
-                             <div class="img-history" >
-                             <img src="{{post.image.url}}">
-                           <p>{{ post.text }}</p>
-                             </div>
-                        </div>
-                        <div class="blog-tag-share">
-                            <div class="tags">
-                                <a href="#">{{ post.tags }}</a>
-                            </div>
-                            <div class="social-share">
-                                <span>Share:</span>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-envelope"></i></a>
-                            </div>
+                    <div class="blog-title">
+                        <h4>{{ post.title }}</h4>
+                        <div class="img-history" >
+                            <img src="{{post.image.url}}">
+                            <p>{{ post.text }}</p>
                         </div>
                     </div>
-                </div>
-{#            {% for news in news %}#}
-{#                <div class="col-lg-4">#}
-{#                    <div class="blog-single-sidebar">#}
-{#                        <div class="bs-latest-news">#}
-{#                            <h4>News Latest</h4>#}
-{#                            <a href="{{ news.get_absolute_url }}" class="bl-item set-bg" data-setbg="img/sidebar-latest.jpg">#}
-{#                                 <h5>{{ post.title }}</h5>#}
-{#                                <span>{{ post.publish }}</span>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                        <div class="bs-recent-news">#}
-{#                            <h4>Recent News</h4>#}
-{#                            <a href="#" class="br-item">#}
-{#                                <div class="bi-pic">#}
-{#                                    <img src="img/br-recent-1.jpg" alt="">#}
-{#                                </div>#}
-{#                                <div class="bi-text">#}
-{#                                    <span>{{ post.publish }}</span>#}
-{#                                    <h5>{{ post.title }}</h5>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                            <a href="#" class="br-item">#}
-{#                                <div class="bi-pic">#}
-{#                                    <img src="img/br-recent-2.jpg" alt="">#}
-{#                                </div>#}
-{#                                <div class="bi-text">#}
-{#                                    <span>Jan 31, 2019</span>#}
-{#                                    <h5>Turkey Gravy Secrets Revealed</h5>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                            <a href="#" class="br-item">#}
-{#                                <div class="bi-pic">#}
-{#                                    <img src="img/br-recent-3.jpg" alt="">#}
-{#                                </div>#}
-{#                                <div class="bi-text">#}
-{#                                    <span>Jan 31, 2019</span>#}
-{#                                    <h5>How To Remove Kidney Stones</h5>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                            <a href="#" class="br-item">#}
-{#                                <div class="bi-pic">#}
-{#                                    <img src="img/br-recent-4.jpg" alt="">#}
-{#                                </div>#}
-{#                                <div class="bi-text">#}
-{#                                    <span>Jan 31, 2019</span>#}
-{#                                    <h5>Help Finding Information Online</h5>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                <div class="col-lg-12">#}
-{#                    <div class="recent-news">#}
-{#                        <h4>Relatest News</h4>#}
-{#                        <div class="row">#}
-{#                            <div class="col-lg-4">#}
-{#                                <div class="recent-item set-bg" data-setbg="img/recent-1.jpg">#}
-{#                                    <a href="#" class="recent-text">#}
-{#                                        <div class="categories">Gym & Croosfit</div>#}
-{#                                        <h5>Many people sign up for affiliate programs</h5>#}
-{#                                    </a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="col-lg-4">#}
-{#                                <div class="recent-item set-bg" data-setbg="img/recent-2.jpg">#}
-{#                                    <a href="#" class="recent-text">#}
-{#                                        <div class="categories">Gym & Croosfit</div>#}
-{#                                        <h5>Many people sign up for affiliate programs</h5>#}
-{#                                    </a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="col-lg-4">#}
-{#                                <div class="recent-item set-bg" data-setbg="img/recent-3.jpg">#}
-{#                                    <a href="#" class="recent-text">#}
-{#                                        <div class="categories">Gym & Croosfit</div>#}
-{#                                        <h5>Many people sign up for affiliate programs</h5>#}
-{#                                    </a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-                    <div class="leave-comment-form">
-                    {% with comments.count as total_comments %}
-                        <h2>
-                            {{ total_comments }} Комментарий {{ total_comments|pluralize }}
-                        </h2>
-                    {% endwith %}
-                        {% for comment in comments %}
-                        <div class="comment">
-                            <p class="info">
-                                Комментарий {{ forloop.counter }} написан {{ comment.name }}
-                                {{ comment.created }}
-                            </p>
-                            {{ comment.body|linebreaks }}
+                    <div class="blog-tag-share">
+                        <div class="tags">
+                            <a href="#">{{ post.tags }}</a>
                         </div>
-                        {% empty %}
-                        <p>Пока еще нет комментариев</p>
-                        {% endfor %}
-                    {% if new_comment %}
-                        <h2>Ваш комментарий был добавлен.</h2>
-                    {% else %}
-                        <h2>Добавить новый комментарий</h2>
-                        <form method="post">
-                            {{ comment_form.as_p }}
-                            {% csrf_token %}
-                            <p><input type="submit" value="Добавте комментарий"></p>
-                        </form>
-                    {% endif %}
-                    </div>
-
-{#                    <h4>Leave A Comment</h4>#}
-{#                        <form action="#">#}
-{#                            <div class="row">#}
-{#                                <div class="col-lg-4">#}
-{#                                    <input type="text" placeholder="Name">#}
-{#                                </div>#}
-{#                                <div class="col-lg-4">#}
-{#                                    <input type="text" placeholder="Email">#}
-{#                                </div>#}
-{#                                <div class="col-lg-4">#}
-{#                                    <input type="text" placeholder="Phone">#}
-{#                                </div>#}
-{#                                <div class="col-lg-12">#}
-{#                                    <textarea placeholder="Comment"></textarea>#}
-{#                                    <button type="submit" class="leave-btn">Post Comment</button>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </form>#}
+                        <div class="social-share">
+                            <span>Share:</span>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="leave-comment-form">
+                {% with comments.count as total_comments %}
+                    <h2>
+                        {{ total_comments }} Комментарий {{ total_comments|pluralize }}
+                    </h2>
+                {% endwith %}
+                {% for comment in comments %}
+                    <div class="comment">
+                        <p class="info">
+                            Комментарий {{ forloop.counter }} написан {{ comment.name }}
+                            {{ comment.created }}
+                        </p>
+                        {{ comment.body|linebreaks }}
+                    </div>
+                {% empty %}
+                    <p>Пока еще нет комментариев</p>
+                {% endfor %}
+                {% if new_comment %}
+                    <h2>Ваш комментарий был добавлен.</h2>
+                {% else %}
+                    <h2>Добавить новый комментарий</h2>
+                    <form method="post">
+                        {{ comment_form.as_p }}
+                        {% csrf_token %}
+                        <p><input type="submit" value="Добавте комментарий"></p>
+                    </form>
+                {% endif %}
+            </div>
         </div>
     </section>
-    <!-- Blog Single Section End -->
-{##}
-{#    <!-- Cta Section Begin -->#}
-{#    <section class="cta-section">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-lg-12">#}
-{#                    <div class="cta-text">#}
-{#                        <h3>GeT Started Today</h3>#}
-{#                        <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>#}
-{#                    </div>#}
-{#                    <a href="#" class="primary-btn cta-btn">book now</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#    <!-- Cta Section End -->#}
-
 {% endblock %}
