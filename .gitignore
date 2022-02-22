@@ -1,4 +1,4 @@
- ../diplom-env
+ ../diplom-env/
 
 diplom/tempates/ignore/
 
@@ -10,18 +10,17 @@ venv/
 
 db.sqlite3/
 
-.env/
-env
 
 
-static/home/Source
-static/home/fonts
-static/home/imge
+
+static/home/Source/
+static/home/fonts/
+static/home/imge/
 static/autontification/
 
-static/news/scss
-static/news/fonts
-static/news/images
+static/news/scss/
+static/news/fonts/
+static/news/images/
 
 
 page/shop/static/
@@ -34,5 +33,6 @@ Please:/
 Select/
 Select:/
 media/
+user/account
 
 
