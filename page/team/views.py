@@ -4,7 +4,7 @@ from page.team.models import Car, DriverR, DriverL
 
 
 def car(request):
-    car = Car.objects.filter()
+    car = Car.objects.filter().order_by('-id')
     return render(request,
                   'diplom/team/car.html',
                   {'car': car})

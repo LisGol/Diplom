@@ -1,4 +1,4 @@
-from django.db.models import Prefetch, Count
+from django.db.models import Count
 
 from page.shop.models import Category, Product
 
@@ -36,7 +36,7 @@ def product_list(request, category_slug=None):
                     'products': products})
 
 
-class CartAddPtoductForm:
+def CartAddPtoductForm():
     pass
 
 
@@ -48,6 +48,6 @@ def product(request, id, slug):
         cart__user=request.user,
         cart__active=True).first()
     return render(request,
-                    'shop/product.html',
+                    'shop/product1.html',
                     {'product': product,
                      'is_in_cart': is_in_cart})

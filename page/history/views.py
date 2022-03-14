@@ -12,7 +12,6 @@ def list_history(request):
 
 def single_history(request, period_slug):
     period = get_object_or_404(History, slug=period_slug)
-
     return render(request,
                   'diplom/history/singlhistory.html',
                   {'period': period})

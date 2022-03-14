@@ -5,7 +5,7 @@ Home
 {% endblock %}
 {% block content %}
 
-    <!-- Hero Section Begin -->
+   <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
               <div class="single-hero-item set-bg" data-setbg="static/home/img/hero-slider/home-1.jpg">
@@ -21,7 +21,7 @@ Home
                     </div>
                 </div>
             </div>
-            <div class="single-hero-item set-bg" data-setbg="static/home/img/hero-slider/home-2.jpg">
+            <div class="single-hero-item set-bg" data-setbg="static/home/img/hero-slider/williams44.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -49,54 +49,84 @@ Home
             </div>
         </div>
     </section>
-    <!-- Hero End -->
 
-{#    <!-- Feature Section Begin -->#}
-{#    <section class="feature-section">#}
-{#        <div class="container-fluid">#}
-{#            <div class="row">#}
-{#                <div class="col-md-4">#}
-{#                   {% for post in news %}#}
-{#                    <div class="feature-item set-bg" >#}
-{#                         data-setbg="img/feature/feature-1.jpg">#}
-{#                        <h3>GROUP CLASSES</h3>#}
-{#                        <p>The Sopranos manages to address the biases<br /> and benefits of therapy</p>#}
-{#                        <a href="{{news.get_absolute_url }}" class="primary-btn f-btn">Read More</a>#}
-{#                    </div>#}
-{#                    {% endfor %}#}
-{#                </div>#}
-{#                {% for post in news %}#}
-{#                <div class="col-md-4">#}
-{#                    <div class="feature-item set-bg" data-setbg="img/feature/feature-2.jpg">#}
-{#                        <h3>PERSONAL TRAINING</h3>#}
-{#                        <p>Strep throat is very common during the flu<br /> seasons and it can be preceded</p>#}
-{#                        <a href="{{ news.get_absolute_url}}" class="primary-btn f-btn">Read More</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endfor %}#}
-{#                <div class="col-md-4">#}
-{#                    <div class="feature-item set-bg" data-setbg="img/feature/feature-3.jpg">#}
-{#                        <h3>Sports Nutrition</h3>#}
-{#                        <p>A Human Being’s right to life implies his right to<br /> have the free and unrestricted</p>#}
-{#                        <a href="#" class="primary-btn f-btn">Read More</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#    <!-- Feature Section End -->#}
+<!-- Feature Section Begin -->
+    <section class="feature-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item set-bg" data-setbg="media/team/Латифи.jpg">
+                        <h3>Николас Латифи №6</h3>
+                        <p>Официальный пилот</p>
+                        <a href="{% url 'team:driver_R' %}" class="primary-btn f-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item set-bg" data-setbg="media/team/рассел.jpg">
+                        <h3>Джордж Расселл №63</h3>
+                        <p>Официальный пилот</p>
+                        <a href="{% url 'team:driver_R'%}" class="primary-btn f-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Section End -->
+    <!-- About Section Begin -->
+     <section class="home-about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h2>ВЕЛИКОЛЕПНЫЙ ОПЫТ WILLIAMS</h2>
+                        <p class="short-details"> Движимый блеском и страстью покойного сэра Фрэнка Уильямса, Уильямс вырос
+                            из скромных начинаний в бегемота Формулы-1, непревзойденный всеми, кроме Ferrari и McLaren, с
+                            точки зрения устойчивого успеха. За последние четыре десятилетия команда одержала победы в
+                            Гран-при и чемпионатах, воспитав при этом одни из величайших спортивных талантов как в кабине,
+                            так и за ее пределами. Теперь, после решения семьи Уильямс уйти в отставку после продажи
+                            команды Dorilton Capital, начинается новая эра...</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="img/home-about.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
 
+    <!-- Classes Section Begin -->
+    <section class="classes-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="classes-item set-bg" data-setbg="media/articles/158838.jpg">
+                        <h4>FW44 дебютирует в Сильверстоуне</h4>
+                        <a href="http://127.0.0.1:8000/news/news/fw44-debyutiruet-v-silverstoune/" class="primary-btn class-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="classes-item set-bg" data-setbg="media/articles/fw44-11.jpg">
+                        <h4>Технические характеристики Williams FW44</h4>
+                        <a href="http://127.0.0.1:8000/news/news/tehnicheskie-harakteristiki-williams-fw44/" class="primary-btn class-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Cta Section Begin -->
     <section class="cta-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cta-text">
-
-                        <h3>GeT Started Today</h3>
-                        <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>
+                     <a href="{% url 'auth:registration' %}" >
+{#                        <h3>GeT Started Today</h3>#}
+                        <h3>ПОЛУЧИТЕ СКИДКУ 10% ПРИ РЕГИСТРАЦИИ И ПРИСОЕДИНЕНИИ К Williams Plus </h3></a>
                     </div>
-                    <a href="#" class="primary-btn cta-btn">book now</a>
+
                 </div>
             </div>
         </div>
@@ -128,6 +158,5 @@ Home
         </div>
     </div>
     <!-- Map Section End -->
+ </div>
 {% endblock %}
-
-

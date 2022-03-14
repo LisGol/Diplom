@@ -29,7 +29,7 @@ class History(models.Model):
         verbose_name_plural = 'История'
 
     def get_absolute_url(self):
-        return reverse('history:Period', args=[self.slug])
+        return reverse('history:period', args=[self.slug])
 
     def __str__(self):
         return self.title

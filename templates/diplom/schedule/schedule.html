@@ -8,23 +8,23 @@
         </div>
         </div>
         <div class="row">
-            {% for schedule in schedule %}
-                <div class="classtime-table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Дата</th>
-                            <th>Страна</th>
-                            <th>Гран При</th>
-                            <th>Траса</th>
-                            <th>Длинна</th>
-                            <th>Круги</th>
-                            <th>Дистанция</th>
-                            <th>Победитель</th>
-                            <th>Команда</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+            <div class="classtime-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Страна</th>
+                        <th>Гран При</th>
+                        <th>Траса</th>
+                        <th>Длинна</th>
+                        <th>Круги</th>
+                        <th>Дистанция</th>
+                        <th>Победитель</th>
+                        <th>Команда</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for schedule in schedule %}
                         <tr>
                             <td>
                                 <h6>{{schedule.date}}</h6>
@@ -55,10 +55,10 @@
                                 <h6>{{schedule.team}}</h6>
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </div>
-                </section>
-            {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 {% endblock %}

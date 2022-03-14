@@ -9,16 +9,16 @@
                 <h2> Кубок конструктора</h2>
             </div>
         </div>
-        {% for team_standing in team_standing %}
-            <div class="classtime-table">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Команда</th>
-                        <th>Очки</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+        <div class="classtime-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Команда</th>
+                    <th>Очки</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for team_standing in team_standing %}
                     <tr>
                         <td data-tsmeta="crossfit">
                             <h6>{{ team_standing.team}}</h6>
@@ -27,9 +27,9 @@
                             <h6>{{ team_standing.score}}</h6>
                         </td>
                     </tr>
-                    </tbody>
-                </table>
-            </div>
-            </section>
-        {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endblock %}

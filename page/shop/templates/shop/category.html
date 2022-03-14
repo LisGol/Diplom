@@ -1,6 +1,5 @@
 {% extends "diplom/activar/base.html" %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'shop/css/style.css'%}" type="text/css">
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
@@ -28,14 +27,16 @@
         {% endif %}</h2>
         {% for product in products %}
             <div class="item">
-                <a href="{{ product.get_absolute_url }}">
-
-{#                    <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">#}
-                </a>
-                <img src="{{product.image.url}}">
                 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                <br>
-                ${{ product.price }}
+                 <br> ${{ product.price }}
+                {% if product.productimage_set.all%}
+                {% for image in product.productimage_set.all %}
+                    <div>
+                        <img src="{{ image.image.url }}" alt="{{ product.name }}">
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             </div>
         {% endfor %}
     </div>

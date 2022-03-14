@@ -14,54 +14,72 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link href="{% static 'activar/css/bootstrap.min.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/font-awesome.min.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/elegant-icons.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/nice-select.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/owl.carousel.min.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/magnific-popup.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/slicknav.min.css'%}" rel="stylesheet">
-    <link href="{% static 'activar/css/style.css'%}" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
 </head>
 <body>
- <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-        {% block content %}
-            {% include 'diplomproject/header.html' %}
-        {% endblock content %}
-    </div>
-
-    <!-- Header Section Begin -->
-<header class="header-section header-normal">
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+    <header class="header-section header-normal">
         <div class="container-fluid">
             <div class="logo">
-                <a href="../../../../../diplom/diplom/templates/activar/home.html">
-                    <img src="../../../static/home/img/logo.png" alt="">
+                <a href="home.html">
+                    <img src="/static/home/img/logo2.png" alt="">
                 </a>
             </div>
-            <div class="top-social">
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
+{#            <div class="top-social">#}
+{#                <a href="#"><i class="fa fa-pinterest-p"></i></a>#}
+{#                <a href="#"><i class="fa fa-linkedin"></i></a>#}
+{#                <a href="#"><i class="fa fa-pinterest-p"></i></a>#}
+{#                <a href="#"><i class="fa fa-youtube-play"></i></a>#}
+{#                <a href="#"><i class="fa fa-instagram"></i></a>#}
+{#            </div>#}
             <div class="container">
                 <div class="nav-menu">
                     <nav class="mainmenu mobile-menu">
                         <ul>
-                            <li><a href="../../../../../diplom/diplom/templates/activar/home.html">Home</a></li>
-                            <li><a href="../../../../../diplom/diplom/templates/history/history.html">About us</a></li>
-                            <li class="active"><a href="schedule.html">Schedule</a></li>
-                            <li><a href=".html">Gallery</a></li>
-                            <li><a href="../../ignore/blog.html">Blog</a>
+                            <li><a href="{% url 'home' %}">Дом</a></li>
+                            <li><a href="{% url 'news:news' %}">Новости</a></li>
+                            <li class="active"><a href="{% url 'history:history' %}">История</a></li>
+                            <li><a href="{% url 'schedule:schedule' %}">Расписание</a></li>
+                            <li class="active"><li><a href="{% url 'team:car' %}">Машина</a>
                                 <ul class="dropdown">
-                                    <li><a href="../../../../../diplom/diplom/templates/history/history.html">About Us</a></li>
-                                    <li><a href="../news/blog-single.html">Blog Details</a></li>
+                                   <li><a href="{% url 'team:driver_R' %}">Джордж Расселл</a></li>
+                                   <li><a href="{% url 'team:driver_l' %}">Николас Латифи</a></li>
                                 </ul>
                             </li>
-                            <li><a href=".html">Contacts</a></li>
+                            <li class="active"><a href="{% url 'team_standing' %}">Командный зачет</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'personal_standing' %}">Личный зачет</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'shop:shop'  %} ">Магазин</a></li>
+                            <li class="active"><a href="{% url 'auth:registration'%} ">Регистрация</a>
+                                <ul class="dropdown">
+                                   <li><a href="{% url 'auth:login' %}"> Войти </a></li>
+                                   <li><a href="{% url 'auth:logout' %}"> Выйти </a></li>
+                                </ul>
+                            </li>
+{#                            <li><a href="{% url 'account:user_profile'%}"> Аккаунт </a></li>#}
+                            <li>
+                            {% if user.is_authenticated %}
+                                <div>
+                                    <span>{{ user.username }}</span>
+                                    {% if user.avatar %}
+                                        <img src="{{ user.avatar.url }}" height="25" width="25">
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -69,26 +87,106 @@
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <!-- Header End -->
+{% block content %}
 
-    <!-- Header End -->
-
-    <!-- Map Section End -->
+   {% endblock %}
 
     <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-logo-item">
+                        <div class="f-logo">
+                            <a href="#"><img src="../../../static/home/img/Racing_logo.png" alt=""></a>
+                        </div>
+                        <p> © Williams Grand Prix Engineering Limited
+                            Williams Grand Prix Engineering Limited is a company registered in England and Wales under company number 1297497.
+                            Its registered office is at Grove, Wantage, Oxfordshire, OX12 0DQ
+                        </p>
+                        <div class="social-links">
+                            <h6>Следите за нами</h6>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Our Blog</h5>
+                        <div class="footer-blog">
+                            <a href="#" class="fb-item">
+                                <h6>Terms & Conditions</h6>
+                                <h6>Privacy Policy</h6>
+                                <h6>Modern Slavery Statement</h6>
+                                <h6>Gender Pay Gap</h6>
+                                <h6>Environmental Policy Statement</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <h5>Program</h5>
+                        <ul class="workout-program">
+                            <li><a href="#">Bodybuilding</a></li>
+                            <li><a href="#">Running</a></li>
+                            <li><a href="#">Streching</a></li>
+                            <li><a href="#">Weight Loss</a></li>
+                            <li><a href="#">Gym Fitness</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h5>Get Info</h5>
+                        <ul class="footer-info">
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <span>Phone:</span>
+                                (12) 345 6789
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o"></i>
+                                <span>Email:</span>
+                                Colorlib.info@gmail.com
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <span>Address</span>
+                                Iris Watson, Box 283 8562, NY
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="ct-inside"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Footer Section End -->
 
- <!-- Js Plugins -->
-    <script src="/static/home/js/jquery-3.3.1.min.js"></script>
-    <script src="/static/home/js/bootstrap.min.js"></script>
-    <script src="/static/home/js/jquery.magnific-popup.min.js"></script>
-    <script src="/static/home/js/mixitup.min.js"></script>
-    <script src="/static/home/js/jquery.nice-select.min.js"></script>
-    <script src="/static/home/js/jquery.slicknav.js"></script>
-    <script src="/static/home/js/owl.carousel.min.js"></script>
-    <script src="/static/home/js/masonry.pkgd.min.js"></script>
-    <script src="/static/home/js/main.js"></script>
+<!-- Js Plugins -->
+<script src="/static/home/js/jquery-3.3.1.min.js"></script>
+<script src="/static/home/js/bootstrap.min.js"></script>
+<script src="/static/home/js/jquery.magnific-popup.min.js"></script>
+<script src="/static/home/js/mixitup.min.js"></script>
+<script src="/static/home/js/jquery.nice-select.min.js"></script>
+<script src="/static/home/js/jquery.slicknav.js"></script>
+<script src="/static/home/js/owl.carousel.min.js"></script>
+<script src="/static/home/js/masonry.pkgd.min.js"></script>
+<script src="/static/home/js/main.js"></script>
 </body>
-
-
 </html>

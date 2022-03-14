@@ -1,5 +1,4 @@
 {% load static %}
-{#{% load news_tags %}#}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -9,13 +8,13 @@
     <meta name="keywords" content="Activitar, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Williams Racing</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-
+    <!-- Css Styles -->
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css'%}" type="text/css">
@@ -25,16 +24,12 @@
     <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
 
-</head>
-
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section header-normal">
+<header class="header-section header-normal">
         <div class="container-fluid">
             <div class="logo">
                 <a href="home.html">
@@ -92,12 +87,9 @@
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <!-- Header End -->
-   {% block content %}
-
+    {% block content %}
    {% endblock %}
-
-    <!-- Footer Section Begin -->
+<!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">

@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.core.exceptions import ValidationError
 from django.db.models import Q
 
@@ -49,3 +51,5 @@ class LoginForm(forms.Form):
         if not user:
             raise ValidationError('Введённые данные неверны')
         return self.cleaned_data
+
+

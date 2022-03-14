@@ -13,8 +13,8 @@
                         {% for image in period.historyimage_set.all %}
                             <img src="{{image.image.url}}">   {% endfor %}
                         {% for historyI in HistoryImage %}
-                            <div class="img-history " alt="{{ historyI.description}}"></div>
                         {% endfor %}
+                        <div class="img-history " alt="{{ historyI.description}}"></div>
                         <h4>{{ period.Year }}</h4>
                         <p>{{ period.text| linebreaks }}</p>
                     </div>

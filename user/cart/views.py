@@ -29,4 +29,4 @@ def cart_detail(request):
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
                                                                    'update': True})
-    return render(request, 'diplom/cart/cart.html', {'cart': cart})
+    return render(request, 'diplom/cart/cart1.html', {'cart': cart})

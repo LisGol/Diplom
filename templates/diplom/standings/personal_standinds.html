@@ -9,17 +9,17 @@
                 <h2>Личный зачет</h2>
             </div>
         </div>
-        {% for personal_standing in personal_standing %}
-            <div class="classtime-table">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Гонщик</th>
-                        <th>Команда</th>
-                        <th>Очки</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+        <div class="classtime-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Гонщик</th>
+                    <th>Команда</th>
+                    <th>Очки</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for personal_standing in personal_standing %}
                     <tr>
                         <td  data-tsmeta="crossfit">
                             <h6>{{ personal_standing.driver}}</h6>
@@ -31,9 +31,9 @@
                             <h6>{{ personal_standing.point }}</h6>
                         </td>
                     </tr>
-                    </tbody>
-                </table>
-            </div>
-            </section>
-        {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endblock %}
